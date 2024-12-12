@@ -29,3 +29,11 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/serial/serialposix.py", line 325, in open
     raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
 serial.serialutil.SerialException: [Errno 13] could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'
+
+
+SocketException: Normalerweise darf jede Socketadresse (Protokoll, Netzwerkadresse oder Anschluss) nur jeweils einmal verwendet werden.
+
+System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) (at <36d5d97f0e39429283d80156f1c7f1fc>:0)
+System.Net.Sockets.UdpClient..ctor (System.Int32 port, System.Net.Sockets.AddressFamily family) (at <36d5d97f0e39429283d80156f1c7f1fc>:0)
+System.Net.Sockets.UdpClient..ctor (System.Int32 port) (at <36d5d97f0e39429283d80156f1c7f1fc>:0)
+UdpReceiver.Start () (at Assets/UdpReceiver.cs:19)
