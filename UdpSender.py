@@ -11,7 +11,7 @@ import sys
 import crcmod.predefined
 import socket  # Importer le module pour l'envoi UDP
 
-UDP_IP = "192.168.1.100"  # Adresse IP du destinataire (ton PC)
+UDP_IP = "172.20.10.13"  # Adresse IP du destinataire (ton PC)
 UDP_PORT = 5005           # Port sur lequel tu envoies les messages UDP
 
 def findEvo():
