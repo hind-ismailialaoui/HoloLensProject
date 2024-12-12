@@ -1,3 +1,6 @@
 error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/log4netPlastic.dll' could not be found
 error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll' could not be found
 error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll' could not be found
+
+Assets\UdpReceiver.cs(19,20): error CS0246: The type or namespace name 'IAsyncResult' could not be found (are you missing a using directive or an assembly reference?)
+Unloading broken assembly Library/ScriptAssemblies/Unity.Rider.Editor.dll, this assembly can cause crashes in the runtime
