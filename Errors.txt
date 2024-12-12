@@ -1,0 +1,3 @@
+error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/log4netPlastic.dll' could not be found
+error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll' could not be found
+error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll' could not be found
