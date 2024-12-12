@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class UdpReceiver : MonoBehaviour
 {
+    public GameObject pointPrefab;  // Cette ligne expose le prefab dans l'inspecteur
+
     UdpClient udpClient;
-    int port = 5005; // Correspond au port utilisé par la Raspberry Pi
+    int port = 5005;  // Port utilisé par la Raspberry Pi
+
+    private float lastReceivedDistance = 0;
 
     void Start()
     {
@@ -18,19 +22,44 @@ public class UdpReceiver : MonoBehaviour
 
     void OnReceive(IAsyncResult result)
     {
-        // Réception des données
-        IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, port);
-        byte[] receivedData = udpClient.EndReceive(result, ref remoteEndPoint);
-        string receivedText = Encoding.UTF8.GetString(receivedData);
-        Debug.Log("Received data: " + receivedText);
+        try
+        {
+            // Réception des données
+            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, port);
+            byte[] receivedData = udpClient.EndReceive(result, ref remoteEndPoint);
+            string receivedText = Encoding.UTF8.GetString(receivedData);
 
-        // Redémarrage de l'écoute
+            if (float.TryParse(receivedText, out float receivedDistance))
+            {
+                lastReceivedDistance = receivedDistance;
+                Debug.Log("Received distance: " + receivedDistance);
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("UDP Receive Error: " + ex.Message);
+        }
+
+        // Redémarre l'écoute des messages UDP
         udpClient.BeginReceive(OnReceive, null);
+    }
+
+    void Update()
+    {
+        if (lastReceivedDistance > 0 && pointPrefab)
+        {
+            // Génère la position pour l'instanciation de la sphère
+            Vector3 position = new Vector3(lastReceivedDistance, 0, 0);
+            Instantiate(pointPrefab, position, Quaternion.identity);
+        }
     }
 
     void OnDestroy()
     {
-        // Fermer le client UDP en cas de destruction de l'objet
-        udpClient.Close();
+        if (udpClient != null)
+        {
+            udpClient.Close();  // Ferme correctement le client UDP
+            Debug.Log("UDP client closed.");
+        }
     }
 }
