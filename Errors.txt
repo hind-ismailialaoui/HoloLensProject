@@ -37,3 +37,10 @@ System.Net.Sockets.Socket.Bind (System.Net.EndPoint localEP) (at <36d5d97f0e3942
 System.Net.Sockets.UdpClient..ctor (System.Int32 port, System.Net.Sockets.AddressFamily family) (at <36d5d97f0e39429283d80156f1c7f1fc>:0)
 System.Net.Sockets.UdpClient..ctor (System.Int32 port) (at <36d5d97f0e39429283d80156f1c7f1fc>:0)
 UdpReceiver.Start () (at Assets/UdpReceiver.cs:19)
+
+
+UDP Receive Error: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.UdpClient'.
+UnityEngine.Debug:LogError (object)
+UdpReceiver:OnReceive (System.IAsyncResult) (at Assets/UdpReceiver.cs:41)
+System.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()
