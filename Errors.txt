@@ -4,3 +4,28 @@ error CS0006: Metadata file 'Library/PackageCache/com.unity.collab-proxy@2.6.0/L
 
 Assets\UdpReceiver.cs(19,20): error CS0246: The type or namespace name 'IAsyncResult' could not be found (are you missing a using directive or an assembly reference?)
 Unloading broken assembly Library/ScriptAssemblies/Unity.Rider.Editor.dll, this assembly can cause crashes in the runtime
+
+Starting Evo data streaming
+Scanning all live ports on this PC
+Evo found on port /dev/ttyACM0
+Attempting to open port...
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '/dev/ttyACM0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/Desktop/Script/UdpSender.py", line 70, in <module>
+    evo = openEvo(port)
+          ^^^^^^^^^^^^^
+  File "/home/pi/Desktop/Script/UdpSender.py", line 28, in openEvo
+    evo = serial.Serial(portname, baudrate=115200, timeout=2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/serial/serialutil.py", line 244, in __init__
+    self.open()
+  File "/usr/lib/python3/dist-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 13] could not open port /dev/ttyACM0: [Errno 13] Permission denied: '/dev/ttyACM0'
