@@ -44,3 +44,7 @@ Object name: 'System.Net.Sockets.UdpClient'.
 UnityEngine.Debug:LogError (object)
 UdpReceiver:OnReceive (System.IAsyncResult) (at Assets/UdpReceiver.cs:41)
 System.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()
+
+
+Assets\UdpReceiver.cs(45,29): error CS0103: The name 'pointPrefab' does not exist in the current context
+Unloading broken assembly Library/ScriptAssemblies/Unity.Rider.Editor.dll, this assembly can cause crashes in the runtime
