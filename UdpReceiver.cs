@@ -6,6 +6,8 @@ using System;
 
 public class UdpReceiver : MonoBehaviour
 {
+    public GameObject pointPrefab;  // Cette ligne expose le prefab dans l'inspecteur
+    
     UdpClient udpClient;
     int localPort = 5005; // Assure-toi que ce port correspond à celui du script Python
     bool isListening = true;
