@@ -10,6 +10,7 @@ public class UdpReceiver : MonoBehaviour
     
     UdpClient udpClient;
     int localPort = 5005; // Assure-toi que ce port correspond à celui du script Python
+    int port = 5005;
     bool isListening = true;
 
     void Start()
